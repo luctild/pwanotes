@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#000000">
+<link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+<link rel="apple-touch-icon" href="favicon.png" />
+<link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="favi.png" type="image/x-icon" />
+<link rel="shortcut icon" href="fav.png" type="image/x-icon" />
+<link rel="icon" href="favicon.png" type="image/x-icon" />
+<link rel="icon" href="favi.png" type="image/x-icon" />
+<!-- iOS splash screens -->
+<link rel="apple-touch-startup-image" href="/splash/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: #90918E;
+        }
+        
+        .top-bar {
+            background-color: #25C213; /* green */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropbtn {
+            background-color: #25C213;
+            background: url("images/menu.png");
+            background-position: center;/* Slightly darker green */
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #D2D2D2;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown:hover .dropbtn {
+            background-color: #7CFC00;
+        }
+        
+        .content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .recycle-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 45px;
+            padding: 10px;
+        }
+        
+        .recycle-item {
+            background-color: #8DB068;
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .recycle-item:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .recycle-item h3 {
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f0f0f0;
+            font-size: 0.8em;
+            color: #666;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <script src="script.js" type="text/javascript" charset="utf-8"></script>
+    <div class="top-bar">
+        <div class="logo">NLSC Physics Notes</div>
+        <div class="dropdown">
+            <button class="dropbtn"></button>
+            <div class="dropdown-content">
+                <a href="#">Share</a>
+                <a href="#">Support</a>
+                <a href="#">Community</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="recycle-list">
+            <div class="recycle-item" onclick="window.location.href='senior1.html'">
+                <h3>Senior One (S.1)</h3>
+            </div>
+            
+            <div class="recycle-item" onclick="window.location.href='senior2.html'">
+                <h3>Senior Two (S.2)</h3>
+            </div>
+            <div class="recycle-item" onclick="window.location.href='senior3.html'">
+                <h3>Senior Three (S.3)</h3>
+            </div>
+            <div class="recycle-item" onclick="window.location.href='senior4.html'">
+                <h3>Senior Four (S.4)</h3>
+            </div>
+     
+        </div>
+    </div>
+    
+    <footer>
+        &copy; 2023 Luctil digital. All rights reserved.
+    </footer>
+
+    <script>
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdowns = document.getElementsByClassName('dropdown-content');
+            for (let i = 0; i < dropdowns.length; i++) {
+                const dropdown = dropdowns[i];
+                if (!event.target.matches('.dropbtn') && !dropdown.contains(event.target)) {
+                    dropdown.style.display = 'none';
+                }
+            }
+        });
+        
+        // Make entire recycle items clickable
+        document.querySelectorAll('.recycle-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // In a real app, this would navigate to a detailed page
+                alert(`Loading ${this.querySelector('h3').textContent} topics`);
+            });
+        });
+    </script>
+</body>
+</html>
